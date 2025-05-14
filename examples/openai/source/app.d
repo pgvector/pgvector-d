@@ -10,8 +10,9 @@ float[][] embed(string[] input)
 {
     string apiKey = environment["OPENAI_API_KEY"];
     string url = "https://api.openai.com/v1/embeddings";
-    JSONValue data = [ "input": input ];
-    data.object["model"] = "text-embedding-3-small";
+    JSONValue data;
+    data["input"] = input;
+    data["model"] = "text-embedding-3-small";
 
     auto client = HTTP();
     client.addRequestHeader("Authorization", "Bearer " ~ apiKey);
@@ -19,7 +20,7 @@ float[][] embed(string[] input)
     auto response = post(url, data.toString, client);
 
     auto embeddings = parseJSON(response)["data"].array;
-    return embeddings.map!(v => v["embedding"].array.map!(e => cast(float) e.floating).array()).array();
+    return embeddings.map!(e => e["embedding"].array.map!(v => cast(float) v.floating).array()).array();
 }
 
 void main()

@@ -11,10 +11,11 @@ string[] embed(string[] texts, string inputType)
 {
     string apiKey = environment["CO_API_KEY"];
     string url = "https://api.cohere.com/v2/embed";
-    JSONValue data = [ "texts": texts ];
-    data.object["model"] = "embed-v4.0";
-    data.object["input_type"] = inputType;
-    data.object["embedding_types"] = ["ubinary"];
+    JSONValue data;
+    data["texts"] = texts;
+    data["model"] = "embed-v4.0";
+    data["input_type"] = inputType;
+    data["embedding_types"] = ["ubinary"];
 
     auto client = HTTP();
     client.addRequestHeader("Authorization", "Bearer " ~ apiKey);
