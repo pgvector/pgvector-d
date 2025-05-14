@@ -18,12 +18,8 @@ float[][] embed(string[] input)
     client.addRequestHeader("Content-Type", "application/json");
     auto response = post(url, data.toString, client);
 
-    float[][] embeddings;
-    foreach(v; parseJSON(response)["data"].array)
-    {
-        embeddings ~= v["embedding"].array.map!(e => cast(float) e.floating).array();
-    }
-    return embeddings;
+    auto embeddings = parseJSON(response)["data"].array;
+    return embeddings.map!(v => v["embedding"].array.map!(e => cast(float) e.floating).array()).array();
 }
 
 void main()
