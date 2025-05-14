@@ -12,6 +12,10 @@ Follow the instructions for your database library:
 
 - [dpq2](#dpq2)
 
+Or check out an example:
+
+- [Embeddings](examples/openai/source/app.d) with OpenAI
+
 ## dpq2
 
 Enable the extension
@@ -82,4 +86,12 @@ Specify the path to libpq if needed:
 
 ```sh
 DFLAGS="-L-L/opt/homebrew/opt/libpq/lib" dub run
+```
+
+To run an example:
+
+```sh
+cd examples/openai
+createdb pgvector_example
+dub run
 ```

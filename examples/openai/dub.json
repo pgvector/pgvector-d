@@ -1,0 +1,6 @@
+{
+    "name": "example",
+    "dependencies": {
+        "dpq2": "~>1.1.7"
+    }
+}
