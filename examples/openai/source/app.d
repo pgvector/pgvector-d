@@ -51,8 +51,8 @@ void main()
     p.sqlCommand = "SELECT content FROM documents ORDER BY embedding <=> $1::vector LIMIT 5";
     p.argsVariadic(queryEmbedding);
     p.resultFormat = ValueFormat.TEXT;
-    auto r = conn.execParams(p);
-    foreach (row; rangify(r))
+    auto result = conn.execParams(p);
+    foreach (row; rangify(result))
     {
         writeln(row);
     }

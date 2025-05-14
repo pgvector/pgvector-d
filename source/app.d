@@ -17,8 +17,8 @@ void main()
 	p.sqlCommand = "SELECT * FROM items ORDER BY embedding <-> $1::vector LIMIT 5";
 	p.argsVariadic([1, 1, 1]);
 	p.resultFormat = ValueFormat.TEXT;
-	auto r = conn.execParams(p);
-	foreach (row; rangify(r))
+	auto result = conn.execParams(p);
+	foreach (row; rangify(result))
 	{
 		writeln(row);
 	}
