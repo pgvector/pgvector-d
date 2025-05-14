@@ -17,6 +17,7 @@ Or check out some examples:
 - [Embeddings](examples/openai/source/app.d) with OpenAI
 - [Binary embeddings](examples/cohere/source/app.d) with Cohere
 - [Hybrid search](examples/hybrid/source/app.d) with Ollama (Reciprocal Rank Fusion)
+- [Sparse search](examples/sparse/source/app.d) with Text Embeddings Inference
 
 ## dpq2
 
