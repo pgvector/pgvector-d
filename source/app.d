@@ -18,7 +18,8 @@ void main()
 	p.argsVariadic("[1,1,1]");
 	p.resultFormat = ValueFormat.TEXT;
 	auto r = conn.execParams(p);
-	foreach (row; rangify(r)) {
+	foreach (row; rangify(r))
+	{
 		writeln(row);
 	}
 

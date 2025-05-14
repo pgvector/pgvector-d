@@ -47,7 +47,8 @@ p.sqlCommand = "SELECT * FROM items ORDER BY embedding <-> $1::vector LIMIT 5";
 p.argsVariadic("[3,1,2]");
 p.resultFormat = ValueFormat.TEXT;
 auto r = conn.execParams(p);
-foreach (row; rangify(r)) {
+foreach (row; rangify(r))
+{
     writeln(row);
 }
 ```
