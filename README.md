@@ -12,9 +12,10 @@ Follow the instructions for your database library:
 
 - [dpq2](#dpq2)
 
-Or check out an example:
+Or check out some examples:
 
 - [Embeddings](examples/openai/source/app.d) with OpenAI
+- [Binary embeddings](examples/cohere/source/app.d) with Cohere
 
 ## dpq2
 
