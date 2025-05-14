@@ -11,11 +11,11 @@ void main()
 
 	QueryParams p;
 	p.sqlCommand = "INSERT INTO items (embedding) VALUES ($1::vector), ($2::vector), ($3::vector)";
-	p.argsVariadic("[1,1,1]", "[2,2,2]", "[1,1,2]");
+	p.argsVariadic([1, 1, 1], [2, 2, 2], [1, 1, 2]);
 	conn.execParams(p);
 
 	p.sqlCommand = "SELECT * FROM items ORDER BY embedding <-> $1::vector LIMIT 5";
-	p.argsVariadic("[1,1,1]");
+	p.argsVariadic([1, 1, 1]);
 	p.resultFormat = ValueFormat.TEXT;
 	auto r = conn.execParams(p);
 	foreach (row; rangify(r))

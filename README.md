@@ -35,7 +35,7 @@ Insert vectors
 ```d
 QueryParams p;
 p.sqlCommand = "INSERT INTO items (embedding) VALUES ($1::vector), ($2::vector)";
-p.argsVariadic("[1,2,3]", "[4,5,6]");
+p.argsVariadic([1, 2, 3], [4, 5, 6]);
 conn.execParams(p);
 ```
 
@@ -44,7 +44,7 @@ Get the nearest neighbors
 ```d
 QueryParams p;
 p.sqlCommand = "SELECT * FROM items ORDER BY embedding <-> $1::vector LIMIT 5";
-p.argsVariadic("[3,1,2]");
+p.argsVariadic([3, 1, 2]);
 p.resultFormat = ValueFormat.TEXT;
 auto r = conn.execParams(p);
 foreach (row; rangify(r))
