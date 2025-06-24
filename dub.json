@@ -1,6 +1,6 @@
 {
 	"name": "pgvector",
 	"dependencies": {
-		"dpq2": "~>1.1.7"
+		"dpq2": "~>1"
 	}
 }
